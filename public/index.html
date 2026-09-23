@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Tracker</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Task Tracker</h1>
+      <p id="summary"></p>
+    </header>
+
+    <form id="task-form">
+      <input id="title" placeholder="What needs to be done?" required />
+      <input id="description" placeholder="Description (optional)" />
+      <div class="row">
+        <select id="priority">
+          <option value="low">Low priority</option>
+          <option value="medium" selected>Medium priority</option>
+          <option value="high">High priority</option>
+        </select>
+        <input id="dueDate" type="date" />
+        <button type="submit">Add task</button>
+      </div>
+    </form>
+
+    <div class="filters">
+      <button data-filter="all" class="active">All</button>
+      <button data-filter="todo">To do</button>
+      <button data-filter="in-progress">In progress</button>
+      <button data-filter="done">Done</button>
+    </div>
+
+    <ul id="task-list"></ul>
+    <p id="empty" hidden>No tasks here.</p>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

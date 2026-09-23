@@ -1,0 +1,85 @@
+:root {
+  --bg: #f5f6f8;
+  --card: #ffffff;
+  --text: #1f2330;
+  --muted: #6b7280;
+  --border: #e3e5ea;
+  --accent: #4f46e5;
+  --low: #10b981;
+  --medium: #f59e0b;
+  --high: #ef4444;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14161c;
+    --card: #1d2029;
+    --text: #e8eaf0;
+    --muted: #9aa0ad;
+    --border: #2e323d;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+main { max-width: 680px; margin: 0 auto; padding: 32px 16px; }
+
+h1 { margin: 0; }
+#summary { color: var(--muted); margin: 4px 0 24px; }
+
+form, .task {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+form { padding: 16px; display: grid; gap: 10px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; }
+
+input, select, button {
+  font: inherit;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+.row select, .row input { flex: 1; min-width: 140px; }
+
+button { cursor: pointer; }
+button[type="submit"] { background: var(--accent); color: #fff; border: none; }
+
+.filters { display: flex; gap: 8px; margin: 20px 0 12px; flex-wrap: wrap; }
+.filters button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+#task-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+
+.task {
+  padding: 12px 14px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  border-left: 4px solid var(--medium);
+}
+.task.low { border-left-color: var(--low); }
+.task.high { border-left-color: var(--high); }
+.task.done .title { text-decoration: line-through; color: var(--muted); }
+
+.task input[type="checkbox"] { margin-top: 4px; width: 18px; height: 18px; }
+.task .body { flex: 1; min-width: 0; }
+.task .title { font-weight: 600; word-break: break-word; }
+.task .desc { color: var(--muted); font-size: 0.9em; margin-top: 2px; }
+.task .meta { font-size: 0.8em; color: var(--muted); margin-top: 6px; }
+.task .meta .overdue { color: var(--high); font-weight: 600; }
+.task .actions { display: flex; gap: 6px; }
+.task .actions select, .task .actions button { padding: 4px 8px; font-size: 0.85em; }
+
+#empty { color: var(--muted); text-align: center; }
